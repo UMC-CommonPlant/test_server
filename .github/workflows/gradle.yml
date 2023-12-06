@@ -79,9 +79,5 @@ jobs:
         run: aws s3 cp --region ap-northeast-2 ./common.zip s3://$S3_BUCKET_NAME/
 
       # Deploy
-      - name: Deploy
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-	run: aws deploy create-deployment --application-name common --deployment-group-name common-group --file-exists-behavior OVERWRITE --s3-location bucket=$S3_BUCKET_NAME, bundleType=zip, key=common.zip --region ap-northeast-2
-
+      - name: Code Deploy
+        run: aws deploy create-deployment --application-name common --deployment-group-name common-group --file-exists-behavior OVERWRITE --s3-location bucket=$S3_BUCKET_NAME, bundleType=zip, key=common.zip --region ap-northeast-2
