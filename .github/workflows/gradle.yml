@@ -36,7 +36,7 @@ jobs:
           FCM_SECRET: ${{ secrets.FCM_SECRET }}
           FCM_SECRET_DIR: src/main/resources/firebase
           FCM_DIR_FILE_NAME: serviceAccountKey.json
-        run: echo $FCM_SECRET | base64 --decode > $FCM_SECRET_DIR/$FCM_SECRET_DIR_FILE_NAME
+        run: echo $FCM_SECRET | base64 --decode > $FCM_SECRET_DIR/$FCM_DIR_FILE_NAME
       
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
