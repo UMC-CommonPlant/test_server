@@ -63,7 +63,3 @@ jobs:
       # S3에 빌드된 파일 업로드
       - name: Upload to S3
         run: aws s3 cp --region ap-northeast-2 ./common.zip s3://$S3_BUCKET_NAME/
-
-      # Deploy
-      - name: Code Deploy
-        run: aws deploy create-deployment --application-name common --deployment-group-name common-group --file-exists-behavior OVERWRITE --s3-location bucket=commonplantbucket,bundleType=zip,key=common.zip --region ap-northeast-2
